@@ -1,10 +1,10 @@
 <?php
-
+require_once'./database/DB.php';
 class LoginModel
 {
    public function check($data)
    {
-      $query = "SELECT * FROM admin WHERE Email = :email AND Password = :password";
+      $query = "SELECT * FROM admin WHERE 'email' = :email AND 'password' = :password";
       $stmt = DB::connect()->prepare($query);
       $stmt->bindParam(':email', $data['email']);
       $stmt->bindParam(':password', $data['password']);

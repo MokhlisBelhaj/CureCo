@@ -1,5 +1,5 @@
 <?php
-
+require_once './models/LoginModel.php';
 if (isset($_POST['login'])) {
 
     $login = new LoginController;
@@ -19,14 +19,14 @@ class LoginController
             // echo ($_POST['email']);
             $data = array(
                 'email' => $_POST['email'],
-                'password' => md5($_POST['password'])
+                'password' =>$_POST['password']
             );
         $result = $loginModel->check($data);
         if ($result == true) {
-
-            header('Location: dashbord');
+          header('Location: dashbord');
         } else {
-            echo '<script>alert("Invalid email or password") </script>';
+            // echo '<script>alert("Invalid email or password ") </script>';
+            echo $_POST['email'];
         }
         }
     }

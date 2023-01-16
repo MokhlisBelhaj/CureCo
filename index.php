@@ -1,6 +1,5 @@
 <?php
 require './controller/logincontroller.php';
-
 ob_start();
 require_once './autoload.php';
 $home = new ControllerHome();
