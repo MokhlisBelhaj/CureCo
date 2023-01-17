@@ -23,10 +23,10 @@ class LoginController
             );
         $result = $loginModel->check($data);
         if ($result == true) {
-          header('Location: dashbord');
+          header('Location: dashboard');
         } else {
-            // echo '<script>alert("Invalid email or password ") </script>';
-            echo $_POST['email'];
+        
+        // echo '<script>alert("Invalid email or password ") </script>';
         }
         }
     }

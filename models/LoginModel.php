@@ -9,8 +9,8 @@ class LoginModel
       $stmt->bindParam(':email', $data['email']);
       $stmt->bindParam(':password', $data['password']);
       $stmt->execute();
-      $result = $stmt->fetch();
-      if ($result) {
+      // $result = $stmt->fetch();
+      if ($stmt->rowCount() > 0) {
          $_SESSION['login']=1;
          return true;
       
