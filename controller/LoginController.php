@@ -1,10 +1,11 @@
 <?php
-require_once './models/LoginModel.php';
+require_once './autoload.php';  
 if (isset($_POST['login'])) {
 
     $login = new LoginController;
     $login->login();
 }
+
 
 class LoginController
 {
@@ -14,9 +15,7 @@ class LoginController
         if (isset($_POST['email']) && isset($_POST['password'])) {
             
 
-            $loginModel = new LoginModel();
-
-            // echo ($_POST['email']);
+            $loginModel = new LoginModel();   
             $data = array(
                 'email' => $_POST['email'],
                 'password' =>$_POST['password']
@@ -24,9 +23,8 @@ class LoginController
         $result = $loginModel->check($data);
         if ($result == true) {
           header('Location: dashboard');
-        } else {
-        
-        // echo '<script>alert("Invalid email or password ") </script>';
+        } else if( $result==false ) {
+         echo '<script>alert("Invalid email or password ") </script>';
         }
         }
     }
@@ -35,7 +33,7 @@ class LoginController
     {
         if (isset($_POST['exit'])) {
             $_SESSION['login'] = 0;
-            header('Location: home');
+            header('Location: login');
         }
     }
 }

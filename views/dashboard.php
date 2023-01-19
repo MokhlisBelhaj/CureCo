@@ -24,14 +24,14 @@
             </button>
             <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
                 <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Dark offcanvas</h5>
+                    <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">CureCO</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                         <button class="btn btn-sm btn-success" type="submit" name="Port" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Port">ajouter de produit</button>
 
-                        <!-- Modal -->
+                        <!-- Modal pour ajouter les produit -->
                         <div class="modal fade" id="Port" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
@@ -42,12 +42,24 @@
                                     <div class="modal-body">
                                         <form method="POST" class="mx-auto w-50">
                                             <div class="form-group">
-                                                <label for="name">Nom du port</label>
-                                                <input type="text" class="form-control" id="name" name="portName" placeholder="Entrez le nom du port" required>
+                                                <label class="text-dark">Nom</label>
+                                                <input type="text" class="form-control" id="name" name="Name" required>
                                             </div>
                                             <div class="form-group">
-                                                <label for="country">Pays</label>
-                                                <input type="text" class="form-control" id="country" name="country" placeholder="Entrez le pays" required>
+                                                <label class="text-dark">quantite</label>
+                                                <input type="text" class="form-control" id="quantite" name="quantite" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="text-dark"> prix</label>
+                                                <input type="text" class="form-control" id="prix" name="prix" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="text-dark">date</label>
+                                                <input type="date" class="form-control" id="date" name="date" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="text-dark">image</label>
+                                                <input type="file" class="form-control" id="image" name="image" required>
                                             </div>
                                     </div>
                                     <div class="modal-footer">
@@ -58,6 +70,7 @@
                             </div>
                             </form>
                         </div>
+                                                   <!-- fin de Modal d'ajouter les produit -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 filtrage
@@ -74,9 +87,11 @@
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-success" name="Search" type="submit">Search</button>
                     </form>
-                    <form action="">
-                        <button class="btn btn-success mt-4" type="submit" name="déconnecter" type="submit">déconnecter</button>
+                    <form action="" method="post" >
+                    <input type="submit" name="exit" class="btn btn-sm btn-danger  mt-5" value="déconnecter">
                     </form>
+                    
+                    
                 </div>
             </div>
         </div>
@@ -89,17 +104,17 @@
                 <h6>prix</h6>
                 <h6>quantite</h6>
                 <div class="d-flex gap-3">
-                    <button class="btn btn-primary" type="submit" name="updat" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#updat"> updat</button>
+                    <button class="btn btn-primary"  name="updat" class="btn" data-bs-toggle="modal" data-bs-target="#updat"><i class="fas fa-pen"></i></button>
                     <form action="" method="post">
                         <input type="hidden" name="id" value="<?php echo $row["idP"] ?>">
-                        <button class='btn btn-danger' name="delete" value="Delete"> <i class="fas fa-trash"></i></button>
+                        <button class='btn btn-danger' name="delete" value="Delete"><i class="fas fa-trash"></i></button>
                     </form>
                     <style>
-                        .modal-backdrop{
-                            z-index: 100 !important;
+                        .modal-backdrop {
+                            z-index: 10 !important;
                         }
-                        </style>
-                    <!-- Modal -->
+                    </style>
+                    <!-- Modal pour modifier le produit -->
                     <div class="modal fade" style="z-index: 100;" id="updat" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
@@ -110,12 +125,24 @@
                                 <div class="modal-body">
                                     <form method="POST" class="mx-auto w-50">
                                         <div class="form-group">
-                                            <label for="name">Nom du port</label>
-                                            <input type="text" class="form-control" id="name" name="portName" placeholder="Entrez le nom du port" required>
+                                            <label class="text-dark">Nom</label>
+                                            <input type="text" class="form-control" id="name" name="updatName" required>
                                         </div>
                                         <div class="form-group">
-                                            <label for="country">Pays</label>
-                                            <input type="text" class="form-control" id="country" name="country" placeholder="Entrez le pays" required>
+                                            <label class="text-dark">quantite</label>
+                                            <input type="text" class="form-control" id="quantite" name="uodatQuantite" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="text-dark"> prix</label>
+                                            <input type="text" class="form-control" id="prix" name="uodatPrix" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="text-dark">date</label>
+                                            <input type="date" class="form-control" id="date" name="uodatDate" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="text-dark">image</label>
+                                            <input type="file" class="form-control" id="image" name="uodatImage" required>
                                         </div>
                                 </div>
                                 <div class="modal-footer">
@@ -126,7 +153,7 @@
                         </div>
                         </form>
                     </div>
-                    
+
                 </div>
 
             </div>
