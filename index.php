@@ -1,6 +1,7 @@
 <?php
 require_once './controller/ControllerHome.php';
 require './controller/logincontroller.php';
+// require './controller/produitController.php';
 ob_start();
 require_once './autoload.php';
 $home = new ControllerHome();
@@ -25,3 +26,4 @@ if (isset($_GET['page'])) {
 } else {
     $home->index('login');
 }
+

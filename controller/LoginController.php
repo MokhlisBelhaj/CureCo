@@ -1,11 +1,11 @@
 <?php
 require_once './autoload.php';  
+
 if (isset($_POST['login'])) {
 
     $login = new LoginController;
     $login->login();
 }
-
 
 class LoginController
 {

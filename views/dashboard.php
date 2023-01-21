@@ -40,10 +40,10 @@
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <form method="POST" class="mx-auto w-50">
+                                        <form method="POST" action="" class="mx-auto w-50">
                                             <div class="form-group">
                                                 <label class="text-dark">Nom</label>
-                                                <input type="text" class="form-control" id="name" name="Name" required>
+                                                <input type="text" class="form-control" id="name" name="name" required>
                                             </div>
                                             <div class="form-group">
                                                 <label class="text-dark">quantite</label>
@@ -54,23 +54,19 @@
                                                 <input type="text" class="form-control" id="prix" name="prix" required>
                                             </div>
                                             <div class="form-group">
-                                                <label class="text-dark">date</label>
-                                                <input type="date" class="form-control" id="date" name="date" required>
-                                            </div>
-                                            <div class="form-group">
                                                 <label class="text-dark">image</label>
                                                 <input type="file" class="form-control" id="image" name="image" required>
                                             </div>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <button type="submit" name="addPort" class="btn btn-primary">Ajouter</button>
+                                        <button type="submit" name="addProduit" class="btn btn-primary">Ajouter</button>
                                     </div>
                                 </div>
                             </div>
                             </form>
                         </div>
-                                                   <!-- fin de Modal d'ajouter les produit -->
+                        <!-- fin de Modal d'ajouter les produit -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 filtrage
@@ -87,35 +83,40 @@
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-success" name="Search" type="submit">Search</button>
                     </form>
-                    <form action="" method="post" >
-                    <input type="submit" name="exit" class="btn btn-sm btn-danger  mt-5" value="déconnecter">
+                    <form action="" method="post">
+                        <input type="submit" name="exit" class="btn btn-sm btn-danger  mt-5" value="déconnecter">
                     </form>
-                    
-                    
+
+
                 </div>
             </div>
         </div>
     </nav>
     <div class="container">
-        <div class="card" style="width: 18rem;">
-            <img src="./views/image/produit.jpg" class="card-img-top cardImag" alt="name">
-            <div class="card-body">
-                <h5 class="card-title">name</h5>
-                <h6>prix</h6>
-                <h6>quantite</h6>
-                <div class="d-flex gap-3">
-                    <button class="btn btn-primary"  name="updat" class="btn" data-bs-toggle="modal" data-bs-target="#updat"><i class="fas fa-pen"></i></button>
-                    <form action="" method="post">
-                        <input type="hidden" name="id" value="<?php echo $row["idP"] ?>">
-                        <button class='btn btn-danger' name="delete" value="Delete"><i class="fas fa-trash"></i></button>
-                    </form>
-                    <style>
+        
+         <?php
+                include './controller/produitController.php';
+            
+         foreach ($afficher as $row) : ?>
+            <div class="card" style="width: 18rem;">
+                <img src="./views/image/<?= $row['image'] ?>" class="card-img-top cardImag" alt="name">
+                <div class="card-body">
+                    <h5 class="card-title"><?= $row['name'] ?></h5>
+                    <h6><?= $row['prix'] ?></h6>
+                    <h6><?= $row['quantite'] ?></h6>
+                    <div class="d-flex gap-3">
+                        <button class="btn btn-primary" name="updat" class="btn" data-bs-toggle="modal" data-bs-target="#updat"><i class="fas fa-pen"></i></button>
+                        <form action="" method="post">
+                            <input type="hidden" name="id" value="<?php echo $row["idP"] ?>">
+                            <button class='btn btn-danger' name="delete" value="Delete"><i class="fas fa-trash"></i></button>
+                            <!-- </form> -->
+                            <!-- <style>
                         .modal-backdrop {
                             z-index: 10 !important;
                         }
-                    </style>
-                    <!-- Modal pour modifier le produit -->
-                    <div class="modal fade" style="z-index: 100;" id="updat" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    </style> -->
+                            <!-- Modal pour modifier le produit -->
+                            <!-- <div class="modal fade" style="z-index: 100;" id="updat" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -151,14 +152,14 @@
                                 </div>
                             </div>
                         </div>
-                        </form>
+                        </form> -->
                     </div>
 
                 </div>
 
             </div>
-        </div>
-    </div>
+            <?php endforeach; ?>
+</div>
 
 
 </body>
