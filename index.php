@@ -5,7 +5,7 @@ require './controller/logincontroller.php';
 ob_start();
 require_once './autoload.php';
 $home = new ControllerHome();
-$pages = ['login', 'dashboard'];
+$pages = ['login', 'dashboard','ajouter','add','updat','delet'];
 if (isset($_GET['page'])) {
     if (in_array($_GET['page'], $pages)) {
         $page = $_GET['page'];
@@ -14,7 +14,7 @@ if (isset($_GET['page'])) {
                 $page = 'dashboard';
             }
         }
-        if ($page == 'dashboard') {
+        if ($page == 'dashboard' or $page == 'ajouter' or $page == 'updat' or $page == 'delet' ) {
             if (!$_SESSION['login'] == 1) {
                 $page = 'login';
             }
