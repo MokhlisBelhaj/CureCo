@@ -1,5 +1,5 @@
 <?php
-require './controller/prodcontroller.php'
+require './controller/produitController.php'
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,21 +33,24 @@ require './controller/prodcontroller.php'
                 </div>
                 <div class="container px-4 px-lg-5 mt-5 mb-5">
                   <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <form action="" method="post">
+                    <!-- <form action="" method="post"> -->
                       <div class="col-lg-8 col-xl-6 text-center w-100">
                         <h4 class="py-4">Entrer le nombre des nouveux produit :</h4>
                         <!-- count input-->
                         <div class=" mb-2">
                           <input class="form-control" type="number" id="nombre" name="count" min="1" required />
                         </div>
+                        <form action="" method="post">
                         <div class="container  rounded mt-5 pb-3 mb-3">
-                          <div id="donnee-produit"></div>
+                          <div id="donnee-produit">
+                          <!-- div khawya -->
+                          </div>
                         </div>
                         <!-- Submit Button-->
                         <div class="d-grid">
                           <!-- <button class="btn py-3 btn-danger rounded-5 btn-xl" type="submit" name="reserve">Reserver</button> -->
                           <button class="btn btn-outline-light btn-lg px-5" type="submit"
-                            name="add">Ajouter</button>
+                            name="addProduct">Ajouter</button>
                         </div>
                       </div>
                     </form>

@@ -29,23 +29,24 @@
                 </div>
                 <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                        <a href="ajouter">
+                        <a href="add">
                             <button class="btn btn-sm btn-success">ajouter de produit</button>
                         </a>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 filtrage
                             </a>
                             <ul class="dropdown-menu dropdown-menu-dark">
-                                <li><a class="dropdown-item" href="#">selon prix croissant</a></li>
-                                <li><a class="dropdown-item" href="#">selon prix décroissant</a></li>
-                                <li><a class="dropdown-item" href="#">selon la date d'ajout croissant</a></li>
-                                <li><a class="dropdown-item" href="#">selon la date d'ajout décroissant</a></li>
-
+                                <form action="" method="post">
+                                    <li><button class="text-decoration-none border-0 bg-transparent text-light" type="submit" name="ascp">selon prix croissant</button></li>
+                                    <li><button class="text-decoration-none border-0 bg-transparent text-light" type="submit" name="descp">selon prix décroissant</button></li>
+                                    <li><button class="text-decoration-none border-0 bg-transparent text-light" type="submit" name="ascd">selon la date d'ajout croissant</button></li>
+                                    <li><button class="text-decoration-none border-0 bg-transparent text-light" type="submit" name="descd">selon la date d'ajout décroissant</button></li>
+                                </form>
                         </li>
                     </ul>
-                    <form class="d-flex mt-3" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <form class="d-flex mt-3" method="post">
+                        <input class="form-control me-2" type="text" name="name" placeholder="Search" aria-label="Search">
                         <button class="btn btn-success" name="Search" type="submit">Search</button>
                     </form>
                     <form action="" method="post">
@@ -57,39 +58,63 @@
             </div>
         </div>
     </nav>
-    <div class="container d-flex gap-3">
-
+    <div class="container d-flex gap-3 mb-3">
         <?php
         include './controller/produitController.php';
+        foreach ($max as $row) : ?>
 
-        foreach ($afficher as $row) : ?>
-            <div class="card" style="width: 18rem;">
-                <img src="./views/image/<?= $row['image'] ?>" class="card-img-top cardImag " style="aspect-ratio: 3/3;object-fit: contain;" alt="name">
-                <div class="card-body">
-                    <h5 class="card-title">Name: <?= $row['name'] ?></h5>
-                    <h6>Prix: <?= $row['prix'] ?> DH</h6>
-                    <h6>Quantite: <?= $row['quantite'] ?></h6>
-                    <div class="d-flex gap-3">
-                        <form action="updat" method="post">
-                            <input type="hidden" name="id" value="<?php echo $row["id"] ?>">
-                            <button class="btn btn-primary"><i class="fas fa-pen"></i></button>
-                        </form>
-                        <form action="delet" method="post">
-                            <input type="hidden" name="id" value="<?php echo $row["id"] ?>">
-                            <button class='btn btn-danger'><i class="fas fa-trash"></i></button>
-                        </form>
-                        <style>
-                            .modal-backdrop {
-                                z-index: auto !important;
-                            }
-                        </style>
-
+            <div class="col-xl-3 col-lg-6">
+                <div class="card card-stats mb-4 mb-xl-0 text-center">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <h5 class="card-title text-uppercase text-muted mb-0">prix maximum</h5>
+                                <span class="h2 font-weight-bold mb-0"> <?= $row['prix'] ?> DH</span>
+                            </div>
+                        </div>
                     </div>
-
                 </div>
-
             </div>
         <?php endforeach; ?>
+        <div class="card card-stats mb-4 mb-xl-0 text-center">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <h5 class="card-title text-uppercase text-muted mb-0">nombre de produit</h5>
+                        <span class="h2 font-weight-bold mb-0"> <?= $count['count'] ?> </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class=" row ">
+        
+        <?php
+            foreach ($afficher as $row) : ?>
+                <div class="col-md-3">
+                    <div class="card mb-md-4" style="width: 18rem;">
+                        <img src="./views/image/<?= $row['image'] ?>" class="card-img-top cardImag " style="aspect-ratio: 3/3;object-fit: contain;" alt="name">
+                        <div class="card-body">
+                            <h5 class="card-title">Name: <?= $row['name'] ?></h5>
+                            <h6>Prix: <?= $row['prix'] ?> DH</h6>
+                            <h6>Quantite: <?= $row['quantite'] ?></h6>
+                            <div class="d-flex gap-3">
+                                <form action="updat" method="post">
+                                    <input type="hidden" name="id" value="<?php echo $row["id"] ?>">
+                                    <button class="btn btn-primary"><i class="fas fa-pen"></i></button>
+                                </form>
+                                <form action="delet" method="post">
+                                    <input type="hidden" name="id" value="<?php echo $row["id"] ?>">
+                                    <button class='btn btn-danger'><i class="fas fa-trash"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                        </div>
+                 </div>
+                <?php endforeach; ?>
+       
     </div>
 
 

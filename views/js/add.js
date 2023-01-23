@@ -11,29 +11,27 @@ number.addEventListener('input', function () {
 
 
     for (let i = 1; i <= max; i++) {
-      console.log(max);
       fields.innerHTML +=
         `
         <p class="text-white text-center pt-3">Donnée de produit ${i}: </p>
-          <form action="" method="post">
+          
               <div class="form-group">
                   <label class="mb-1">NOM</label>
-                  <input type="text" class="form-control" id="name${i}" name="name" required>
+                  <input type="text" class="form-control" id="name" name="name[]" required>
               </div>
               <div class="form-group">
                   <label class="mb-1">QUANTITE</label>
-                  <input type="text" class="form-control" id="quantite" name="quantite${i}" required>
+                  <input type="text" class="form-control" id="quantite" name="quantite[]" required>
               </div>
               <div class="form-group">
                   <label class="mb-1"> PRIX</label>
-                  <input type="text" class="form-control" id="prix" name="prix${i}" required>
+                  <input type="text" class="form-control" id="prix" name="prix[]" required>
               </div>
               <div class="form-group">
                   <label class="mb-1">IMAGE</label>
-                  <input type="file" class="form-control" id="image" name="image${i}" required>
+                  <input type="file" class="form-control" id="image" name="image[]" required>
               </div>
-             
-          </form>
+          
         `
     }
   } else {

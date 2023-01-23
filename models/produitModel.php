@@ -2,11 +2,29 @@
 class produitModel{
     static public function getall()
     {
-       $query = "SELECT * FROM `produit`";
+        $query = "SELECT * FROM `produit`";
+ 
        $stmt = DB::connect()->prepare($query);
        $stmt->execute();
        $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
        return $res;
+    }
+    static public function getMaxPrix()
+        {
+            $query = "SELECT * FROM `produit`WHERE prix =(SELECT MAX(prix) FROM produit) ";
+            $stmt = DB::connect()->prepare($query);
+            $stmt->execute();
+            $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $res;
+         }
+         static public function count(){
+            {
+                $query = "SELECT count(id) as 'count' FROM `produit` ";
+                $stmt = DB::connect()->prepare($query);
+                $stmt->execute();
+                $res = $stmt->fetch(PDO::FETCH_ASSOC);
+                return $res;
+             }
     }
     static public function getprod($data){
         //  $id=$data['id'];
@@ -22,8 +40,8 @@ class produitModel{
         $insert = "INSERT INTO `produit`(name, quantite, prix, date, image) VALUES (:name, :quantite, :prix, now(), :image)";
        $stmt = DB::connect()->prepare($insert);
        $stmt->bindParam(':name', $data['name']);
-       $stmt->bindParam(':quantite', $data['quantite']);
-       $stmt->bindParam(':prix', $data['prix']);
+       $stmt->bindParam(':quantite', $data['quantity']);
+       $stmt->bindParam(':prix', $data['price']);
        $stmt->bindParam(':image', $data['image']);
        $stmt->execute();
     }
@@ -48,4 +66,45 @@ class produitModel{
               return 'ok';  
     }
 }
+    static function asc(){
+        $query = "SELECT * FROM `produit` order by prix";
+       $stmt = DB::connect()->prepare($query);
+       $stmt->execute();
+       $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
+       return $res;
+    }
+
+    static function desc(){
+        $query = "SELECT * FROM `produit` order by prix desc";
+       $stmt = DB::connect()->prepare($query);
+       $stmt->execute();
+       $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
+       return $res;
+    }
+    static function ascd(){
+        $query = "SELECT * FROM `produit` order by date";
+       $stmt = DB::connect()->prepare($query);
+       $stmt->execute();
+       $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
+       return $res;
+    }
+
+    static function descd(){
+        $query = "SELECT * FROM `produit` order by date desc";
+       $stmt = DB::connect()->prepare($query);
+       $stmt->execute();
+       $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
+       return $res;
+    }
+    static function Search($name){
+        
+        // var_dump(  $name);
+        // die();
+        $query ="SELECT * FROM `produit` WHERE name like '%$name%' ";
+       $stmt = DB::connect()->query($query);
+       
+       $stmt->execute();
+       $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
+       return $res;
+    }
 }
