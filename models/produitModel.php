@@ -48,13 +48,12 @@ class produitModel{
     public function updatProd($data)
     {
        
-        $updat = " UPDATE `produit` SET `name`= :name,`image`= :image,`quantite`=:quantite,`prix`=:prix WHERE id=:id;";
+        $updat = " UPDATE `produit` SET `name`= :name,`quantite`=:quantite,`prix`=:prix WHERE id=:id;";
        $stmt = DB::connect()->prepare($updat);
        $stmt->bindParam(':id', $data['id']);
        $stmt->bindParam(':name', $data['name']);
        $stmt->bindParam(':quantite', $data['quantite']);
        $stmt->bindParam(':prix', $data['prix']);
-       $stmt->bindParam(':image', $data['image']);
        $stmt->execute();
     }
     static function delete($data){

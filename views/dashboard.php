@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link rel="stylesheet" href="../views/css/style.css">
+    <link rel="stylesheet" href="./views/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&family=Titillium+Web&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body class="gradient-custom ">
     <nav class="navbar navbar-dark bg-dark mb-3">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.php"><img src="./views/image/logo 1.png" alt="CureCo logo" width="50px"></a>
@@ -88,14 +88,14 @@
         </div>
 
     </div>
-
+<div class="container">
     <div class=" row ">
         
         <?php
             foreach ($afficher as $row) : ?>
-                <div class="col-md-3">
-                    <div class="card mb-md-4" style="width: 18rem;">
-                        <img src="./views/image/<?= $row['image'] ?>" class="card-img-top cardImag " style="aspect-ratio: 3/3;object-fit: contain;" alt="name">
+                <div class="col-md-4">
+                    <div class="card mb-md-3" style="width: 18rem;">
+                        <img src="./views/image/<?= $row['image'] ?>" class="card-img-top cardImag " style="aspect-ratio: 3/3;object-fit: contain;" alt=" <?= $row['name'] ?>">
                         <div class="card-body">
                             <h5 class="card-title">Name: <?= $row['name'] ?></h5>
                             <h6>Prix: <?= $row['prix'] ?> DH</h6>
@@ -116,7 +116,7 @@
                 <?php endforeach; ?>
        
     </div>
-
+    </div>
 
 </body>
 

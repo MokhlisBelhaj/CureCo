@@ -98,7 +98,7 @@ class produitController
                 'name' => $_POST['name'],
                 'quantite' => $_POST['quantite'],
                 'prix' => $_POST['prix'],
-                'image' => $_POST['image']
+                
             );
             $prod->updatProd($data);
             header('Location: dashboard');

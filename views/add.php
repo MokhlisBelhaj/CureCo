@@ -9,9 +9,10 @@ require './controller/produitController.php'
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
   <link rel="stylesheet" href="./views/css/style.css">
+    <script src="https://kit.fontawesome.com/c5baaf305b.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   <title>guests</title>
 </head>
 
@@ -27,10 +28,11 @@ require './controller/produitController.php'
               <div class="mb-md-5 mt-md-4 ">
 
                 <div class="text-center ">
-                  <a href="dashboard">
-                    <img class="w-50" src="./views/image/logo 1.png" alt="logo">
-                  </a>
+                  <img class="w-50" src="./views/image/logo 1.png" alt="logo">
                 </div>
+                  <a href="dashboard">
+                    <button class="btn btn-primary btn-round"></i>Retourner</button>
+                  </a>
                 <div class="container px-4 px-lg-5 mt-5 mb-5">
                   <div class="row gx-4 gx-lg-5 justify-content-center">
                     <!-- <form action="" method="post"> -->

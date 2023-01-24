@@ -25,10 +25,11 @@ include './controller/produitController.php';
                             <div class="mb-md-5 mt-md-4 ">
 
                                 <div class="text-center ">
-                                    <a href="dashboard">
-                                        <img class="w-50" src="./views/image/logo 1.png" alt="logo">
-                                    </a>
+                                    <img class="w-50" src="./views/image/logo 1.png" alt="logo">
                                 </div>
+                                    <a href="dashboard">
+                                        <button class="btn btn-primary btn-round"></i>Retourner</button>
+                                    </a>
 
                                 <form action="" method="post">
                                     <div class="form-group">
@@ -42,10 +43,6 @@ include './controller/produitController.php';
                                     <div class="form-group">
                                         <label class="mb-1"> PRIX</label>
                                         <input type="number"  class="form-control" id="prix" name="prix" value="<?php echo $prod->prix?>" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="mb-1">IMAGE</label>
-                                        <input type="file" class="form-control" id="image" name="image" value="<?php echo $prod->image?>" required>
                                     </div>
                                     <input type="hidden" name="id" value="<?php echo $prod->id?>">
                                     <button class="btn btn-outline-light btn-lg mt-5 px-5" type="submit" name="updatProduit">updat</button>

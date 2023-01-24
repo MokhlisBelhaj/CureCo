@@ -28,7 +28,7 @@
                                 <form method="POST" action="" id="login">
                                     <div class=" form-white mb-2">
                                         <input type="email" name="email" id="email" class="form-control form-control-lg" >
-                                        <label class="form-label">user name</label>
+                                        <label class="form-label">username</label>
                                     </div>
 
                                     <div class="form-outline form-white mb-2">
@@ -50,7 +50,7 @@
         var login = document.getElementById("login");
         login.addEventListener('submit',function(e){
             if(email.value=="" || password.value==""){
-                alert("dakhal ifo");
+                alert("Please enter your username or password ");
                 e.preventDefault();
             
             }

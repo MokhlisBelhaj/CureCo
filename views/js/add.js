@@ -21,11 +21,11 @@ number.addEventListener('input', function () {
               </div>
               <div class="form-group">
                   <label class="mb-1">QUANTITE</label>
-                  <input type="text" class="form-control" id="quantite" name="quantite[]" required>
+                  <input type="number" class="form-control" id="quantite" name="quantite[]" required>
               </div>
               <div class="form-group">
                   <label class="mb-1"> PRIX</label>
-                  <input type="text" class="form-control" id="prix" name="prix[]" required>
+                  <input type="number" class="form-control" id="prix" name="prix[]" required>
               </div>
               <div class="form-group">
                   <label class="mb-1">IMAGE</label>
