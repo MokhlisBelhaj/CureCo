@@ -24,7 +24,7 @@ class LoginController
         if ($result == true) {
           header('Location: dashboard');
         } else if( $result==false ) {
-         echo '<script>alert("Invalid email or password ") </script>';
+         echo '<script>alert("Invalid user name or password ") </script>';
         }
         }
     }
